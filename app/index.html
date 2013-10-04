@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html ng-app='MainApp' ng-controller='MainController'>
+
+<head>
+  <title>The ASDF</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='components/bootstrap/dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
+  <link href='dist/styles/main.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+    <div ui-view></div>
+    <a ui-sref='users'>Users</a>
+
+  <!-- begin scripts -->
+  <script src='/components/angular/angular.min.js'></script>
+  <!-- <script src='/components/angular-route/angular-route.js'></script> -->
+  <script src='/components/angular-ui-router/release/angular-ui-router.min.js'></script>
+  <script src='/dist/scripts/app.js'></script>
+  <!-- end scripts -->
+</body>
+
+</html>
