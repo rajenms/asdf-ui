@@ -1,3 +1,37 @@
-<div ng-controller='UsersController'>
-  <div>hello, herre in users!</div>
-</div>
+<h2>
+  Users
+</h2>
+<button class='btn btn-success new-item-btn' ui-sref='admin.new_user'>
+  <i class='icon-plus'></i>
+  New User
+</button>
+<table class='table table-striped admin-table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Is Admin</th>
+      <th>Created</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users">
+      <td class='name'>
+        {{user.first_name}} {{user.last_name}}
+      </td>
+      <td>
+        {{user.email}}
+      </td>
+      <td class='is-admin'>
+        {{user.is_admin}}
+      </td>
+      <td class='created-at'>
+        {{user.createdAt | date:'medium'}}
+      </td>
+      <td>
+        <span ng-click='deleteUser(user.id)' class='glyphicon glyphicon-remove'></span>
+      </td>
+    </tr>
+  </tbody>
+</table>

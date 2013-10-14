@@ -1,22 +1,28 @@
-# angular.module('MainApp', ['ngRoute'])
-#   .config(($routeProvider, $locationProvider) ->
-#     $locationProvider.html5Mode(true)
-#     $routeProvider
-#       .when('/',
-#         controller: 'MainController'
-#         templateUrl: '/views/asdf/main.html'
-#       )
-#       .when('/users/',
-#         controller: 'UsersController'
-#         templateUrl: '/views/admin/users.html'
-#       )
-#   )
+"use strict"
+angular.module("asdfApp", ['ui.router']).config ($stateProvider, $urlRouterProvider, $locationProvider) ->
 
-app = angular.module 'MainApp', ['ui.router']
+  $locationProvider.html5Mode true
 
-app.config ($stateProvider, $urlRouterProvider) ->
+  $urlRouterProvider.otherwise "/"
 
   $stateProvider
-    .state 'users',
-      url: '/users'
-      templateUrl: '/views/admin/users.html'
+    .state 'main',
+      url: "/"
+      templateUrl: "views/main.html"
+      controller: "MainCtrl"
+
+    .state 'admin',
+      url: "/admin"
+      templateUrl: "/views/admin/main.html"
+      controller: "AdminCtrl"
+
+    # Admin 
+    .state 'admin.users',
+      url: "/users"
+      templateUrl: "/views/admin/users.html"
+      controller: "UserCtrl"
+
+    .state 'admin.new_user',
+      url: "/users/new"
+      templateUrl: "/views/admin/new_user.html"
+      controller: "UserCtrl"
