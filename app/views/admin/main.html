@@ -1,0 +1,9 @@
+<nav class='admin-nav-bar'>
+  <a ui-sref='admin' class='admin-logo'>
+    <span class='amara'>amara</span> admin
+  </a>
+  <a ui-sref='admin.users' ng-class="{ active: $state.includes('admin.users') }">
+    Users
+  </a>
+</nav>
+<div ui-view class='admin-body'></div>
