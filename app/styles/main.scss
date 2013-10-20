@@ -8,10 +8,28 @@ body {
     color: #333;
 }
 
-// Glyphicons
-.glyphicon-remove {
+h2, h3 {
+    color: #696969;
+}
+a:hover{
+    text-decoration: none;
+}
+
+.btn {
+    font-size: 18px;
+}
+
+.glyphicon-remove,
+.glyphicon-pencil{
     cursor: pointer;
     color: #BDBDBD;
+}
+
+.glyphicon.delete:hover{
+    color: red;
+}
+.glyphicon.edit:hover{
+    color: green;
 }
 
 // Admin
@@ -49,17 +67,11 @@ body {
     }
 }
 .admin-body {
+    width: 100%;
     margin-top: 50px;
     h2 {
-        color: #BDBDBD;
         float: left;
         margin: 10px;
-    }
-    form {
-        float: left;
-        clear: left;
-        width: 900px;
-        padding: 20px;
     }
     .new-item-btn {
         margin: 10px;
@@ -70,6 +82,13 @@ body {
     thead {
         tr {
             background-color: #E4E4E4;
+        }
+    }
+    tbody {
+        td.actions{
+            a {
+                margin-right: 20px;
+            }
         }
     }
 }
@@ -89,4 +108,36 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+/* =form wrapper */
+.form-wrapper {
+    margin: 100px auto;
+    width: 600px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px #D1D1D1;
+    h3 {
+        margin: 10px;
+        text-align: center;
+    }
+    form {
+        margin-top: 30px;
+        input {
+            padding: 20px;
+        }
+    }
+    .form-top {
+        padding: 10px;
+    }
+    .form-bottom {
+        width: 100%;
+        padding: 10px 10px 20px 10px;
+    }
+    .button-wrapper {
+        margin: 0 auto;
+        width: 260px;
+    }
+    .cancel {
+        color: red;
+    }
 }

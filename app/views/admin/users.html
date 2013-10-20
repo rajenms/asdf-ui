@@ -1,9 +1,8 @@
 <h2>
   Users
 </h2>
-<button class='btn btn-success new-item-btn' ui-sref='admin.new_user'>
-  <i class='icon-plus'></i>
-  New User
+<button class='btn btn-default new-item-btn' ui-sref='admin.new_user'>
+  <i class='glyphicon-plus'>&nbsp;New User</i>
 </button>
 <table class='table table-striped admin-table'>
   <thead>
@@ -29,8 +28,9 @@
       <td class='created-at'>
         {{user.createdAt | date:'medium'}}
       </td>
-      <td>
-        <span ng-click='deleteUser(user.id)' class='glyphicon glyphicon-remove'></span>
+      <td class='actions'>
+        <a class='glyphicon glyphicon-pencil edit' ui-sref='admin.edit_user({ id: user.id })'></a>
+        <a class='glyphicon glyphicon-remove delete' ng-click="deleteUser(user.id)"></a>
       </td>
     </tr>
   </tbody>

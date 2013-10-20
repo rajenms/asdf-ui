@@ -24,5 +24,10 @@ angular.module("asdfApp", ['ui.router']).config ($stateProvider, $urlRouterProvi
 
     .state 'admin.new_user',
       url: "/users/new"
-      templateUrl: "/views/admin/new_user.html"
+      templateUrl: "/views/admin/user_form.html"
+      controller: "UserCtrl"
+
+    .state 'admin.edit_user',
+      url: "/user/:id",
+      templateUrl: "/views/admin/user_form.html",
       controller: "UserCtrl"

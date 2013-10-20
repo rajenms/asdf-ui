@@ -1,10 +1,27 @@
 angular.module('asdfApp')
 
-  .controller 'UserCtrl', ($scope, $http, $state) ->
+  .controller 'UserCtrl', ($scope, $http, $state, $stateParams) ->
 
-    if $state.current.name is 'admin.users'
-      $http.get('/api/v1/users').success (users) ->
-        $scope.users = users.data
+    switch $state.current.name
+
+      when 'admin.users'
+        $http.get('/api/v1/users').success (users) ->
+          $scope.users = users.data
+
+      when 'admin.edit_user'
+        userId = $stateParams.id
+        $http.get('/api/v1/user/' + userId).success (user) ->
+          data = user.data
+          $scope.firstName = data.first_name
+          $scope.lastName = data.last_name
+          $scope.email = data.email
+          $scope.userId = userId
+          $scope.title = "Edit User"
+          $scope.saveLabel = "Save Edits"
+
+      when 'admin.new_user'
+        $scope.title = "New User"
+        $scope.saveLabel = "Save New User"
 
     $scope.createUser = () ->
       newUser = 
