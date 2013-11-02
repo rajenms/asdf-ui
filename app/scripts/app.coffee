@@ -31,3 +31,12 @@ angular.module("asdfApp", ['ui.router']).config ($stateProvider, $urlRouterProvi
       url: "/user/:id",
       templateUrl: "/views/admin/user_form.html",
       controller: "UserCtrl"
+
+    .state 'admin.login',
+      url: "/login",
+      templateUrl: "/views/admin/login.html",
+      controller: "LoginCtrl"
+
+    .state 'admin.logout',
+      url: "/logout",
+      controller: "LoginCtrl"

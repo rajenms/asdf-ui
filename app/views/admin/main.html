@@ -5,5 +5,8 @@
   <a ui-sref='admin.users' ng-class="{ active: $state.includes('admin.users') }">
     Users
   </a>
+  <div class='acct-info'>
+    <a ng-click='logout()'>Logout</a>
+  </div>
 </nav>
 <div ui-view class='admin-body'></div>

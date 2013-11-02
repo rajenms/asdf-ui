@@ -65,6 +65,9 @@ a:hover{
     a.active{
         background-color: #49AAB8;
     }
+    .acct-info{
+        float: right;
+    }
 }
 .admin-body {
     width: 100%;
@@ -112,6 +115,7 @@ a:hover{
 
 /* =form wrapper */
 .form-wrapper {
+    background-color: #fff;
     margin: 100px auto;
     width: 600px;
     border-radius: 3px;
@@ -135,9 +139,15 @@ a:hover{
     }
     .button-wrapper {
         margin: 0 auto;
-        width: 260px;
     }
     .cancel {
         color: red;
     }
+}
+
+.form-wrapper.user-form{
+    .button-wrapper { width: 245px; }
+}
+.form-wrapper.login-form{
+    .button-wrapper { width: 73px; }
 }
