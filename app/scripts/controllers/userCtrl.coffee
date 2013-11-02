@@ -1,6 +1,12 @@
 angular.module('asdfApp')
 
-  .controller 'UserCtrl', ($scope, $http, $state, $stateParams) ->
+  .controller 'UserCtrl', ($scope, $http, $state, $stateParams, Session) ->
+    console.log 'session: ', Session
+    if Session.isLoggedIn is false
+      console.log 'logged out'
+      $state.go 'admin.login'
+    else
+      console.log 'logged in'
 
     switch $state.current.name
 
