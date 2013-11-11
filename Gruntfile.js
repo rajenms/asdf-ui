@@ -128,7 +128,7 @@ module.exports = function(grunt) {
         options: {
           middleware: function(connect) {
             return [
-              reverseProxyApiRequest('localhost', '28000'),            
+              reverseProxyApiRequest('localhost', '28000'),
               pushStateHook('http://localhost:9000'),
               lrSnippet,
               mountFolder(connect, '.tmp'),
