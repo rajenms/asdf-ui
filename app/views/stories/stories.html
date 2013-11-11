@@ -1,0 +1,29 @@
+<h2>Stories</h2>
+<button class='btn btn-default new-item-btn' ui-sref='admin.new_story'>
+  <i class='glyphicon-plus'>&nbsp;New Story</i>
+</button>
+<table class='table table-striped admin-table'>
+    <thead>
+        <tr>
+            <th>Url</th>
+            <th>First Sentence</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='story in stories'>
+            <td class='url'>{{story.url}}</td>
+            <td class='first-sentence'>{{story.firstSentence}}</td>
+            <td class='created-at'>{{story.createdAt | date:'medium'}}</td>
+            <td class='actions'>
+                <a class='glyphicon glyphicon-pencil edit'
+                    ui-sref='admin.edit_story({ id: story.id })'>
+                </a>
+                <a class='glyphicon glyphicon-remove delete'
+                    ng-click="deleteStory(story.id)">
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

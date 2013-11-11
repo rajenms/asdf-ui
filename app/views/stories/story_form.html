@@ -1,0 +1,38 @@
+<div class='form-wrapper story-form'>
+
+  <div class='form-top'>
+    <h3>{{title}}</h3>
+    <form role='form' class='form-horizontal'>
+
+      <div class='form-group'>
+        <label for='url' class="col-lg-3 control-label">URL:</label>
+        <div class="col-lg-7">
+          <input name='url' ng-model='url' id='url' class='form-control' />
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <label for='firstSentence' class="col-lg-3 control-label">First Sentence:</label>
+        <div class="col-lg-7">
+          <textarea name='first-sentence' ng-model='firstSentence' id='firstSentence' class='form-control'></textarea>
+        </div>
+      </div>
+
+      <input type='hidden' ng-model='storyId' />
+    </form>
+  </div><!-- .form-top -->
+
+  <div class='form-bottom'>
+    <div class='button-wrapper'>
+      <button class='btn btn-default' ui-sref='admin.stories' class='cancel'>
+        Cancel
+      </button>&nbsp;
+      <button type='submit'
+              class='btn btn-warning'
+              ng-click='saveStory(storyId)'>
+        {{ saveLabel }}
+      </button>
+    </div>
+  </div><!-- .form-bottom -->
+
+</div>

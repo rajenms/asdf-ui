@@ -1,12 +1,24 @@
 <nav class='admin-nav-bar'>
-  <a ui-sref='admin' class='admin-logo'>
+  <a ui-sref='admin.users' class='admin-logo'>
     <span class='amara'>amara</span> admin
   </a>
-  <a ui-sref='admin.users' ng-class="{ active: $state.includes('admin.users') }">
+  <a ui-sref='admin.users'
+      ng-class="{ active: $state.includes('admin.users') }">
     Users
   </a>
+  <a ui-sref='admin.stories'
+      ng-class="{ active: $state.includes('admin.stories') }">
+    Stories
+  </a>
   <div class='acct-info'>
-    <a ng-click='logout()'>Logout</a>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        {{email}} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a ng-click='logout()'>Logout</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 <div ui-view class='admin-body'></div>

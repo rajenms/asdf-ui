@@ -1,12 +1,6 @@
 angular.module('asdfApp')
 
   .controller 'UserCtrl', ($scope, $http, $state, $stateParams, Session) ->
-    console.log 'session: ', Session
-    if Session.isLoggedIn is false
-      console.log 'logged out'
-      $state.go 'admin.login'
-    else
-      console.log 'logged in'
 
     switch $state.current.name
 
@@ -18,25 +12,34 @@ angular.module('asdfApp')
         userId = $stateParams.id
         $http.get('/api/v1/user/' + userId).success (user) ->
           data = user.data
-          $scope.firstName = data.first_name
-          $scope.lastName = data.last_name
-          $scope.email = data.email
+          $scope.firstName = data.firstName
+          $scope.lastName = data.lastName
+          $scope.userEmail = data.email
           $scope.userId = userId
           $scope.title = "Edit User"
-          $scope.saveLabel = "Save Edits"
+          $scope.saveLabel = "Save User"
+          $scope.isAdmin = data.isAdmin
 
       when 'admin.new_user'
         $scope.title = "New User"
         $scope.saveLabel = "Save New User"
 
-    $scope.createUser = () ->
-      newUser = 
-        first_name: $scope.firstName
-        last_name: $scope.lastName
-        email: $scope.email
+    $scope.saveUser = (id) ->
+      user =
+        firstName: $scope.firstName
+        lastName: $scope.lastName
+        email: $scope.userEmail
         password: $scope.password
-      $http.post('/api/v1/user', newUser).success () ->
-        $state.go 'admin.users'
+        isAdmin: $scope.isAdmin
+
+      if id?
+        console.log 'editing'
+        $http.put('/api/v1/user/' + id, user).success () ->
+          $state.go 'admin.users'
+      else
+        console.log 'adding'
+        $http.post('/api/v1/user', user).success () ->
+          $state.go 'admin.users'
 
     $scope.deleteUser = (id) ->
       $http.delete('/api/v1/user/' + id).success () ->

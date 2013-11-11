@@ -1,17 +1,18 @@
 <div class='form-wrapper login-form'>
   <div class='form-top'>
     <h3>Login</h3>
-    <form role='form' class='form-horizontal'>  
+    <form role='form' class='form-horizontal'>
       <div class='form-group'>
-        <label for='email' class="col-lg-3 control-label">Email:</label> 
+        <label for='email' class="col-lg-3 control-label">Email:</label>
         <div class="col-lg-7">
           <input name='email' ng-model='email' id='email' class='form-control' />
         </div>
       </div>
       <div class='form-group'>
-        <label for='email' class="col-lg-3 control-label">Password:</label> 
+        <label for='email' class="col-lg-3 control-label">Password:</label>
         <div class="col-lg-7">
-          <input name='password' ng-model='password' id='password' class='form-control' type='password' />
+          <input name='password' ng-model='password' id='password' class='form-control'
+                  type='password' ng-enter="login()" />
         </div>
       </div>
       <input type='hidden' ng-model='userId' />
