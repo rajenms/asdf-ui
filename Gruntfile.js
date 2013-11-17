@@ -354,14 +354,19 @@ module.exports = function(grunt) {
         'compass',
         'copy:styles'
       ],
-      dist: [
-        'coffee',
-        'compass:dist',
-        'copy:styles',
-        'imagemin',
-        'svgmin',
-        'htmlmin'
-      ]
+      dist: {
+        tasks: [
+          'coffee',
+          'compass:dist',
+          'copy:styles',
+          'imagemin',
+          'svgmin',
+          'htmlmin'
+        ],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
     },
     karma: {
       unit: {
