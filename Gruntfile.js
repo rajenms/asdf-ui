@@ -356,8 +356,8 @@ module.exports = function(grunt) {
       ],
       dist: {
         tasks: [
-          'coffee',
-          'compass:dist',
+          // 'coffee',
+          // 'compass:dist',
           'copy:styles',
           'imagemin',
           'svgmin',
@@ -426,6 +426,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
+    'coffee',
+    'compass:dist',
     'concurrent:dist',
     'autoprefixer',
     'concat',
