@@ -1,38 +1,40 @@
-<h2>Users</h2>
-<button class='btn btn-default new-item-btn' ui-sref='admin.new_user'>
-  <i class='glyphicon-plus'>&nbsp;New User</i>
-</button>
-<table class='table table-striped admin-table'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Is Admin</th>
-      <th>Created</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="user in users">
-      <td class='name'>
-        {{user.firstName}} {{user.lastName}}
-      </td>
-      <td>
-        {{user.email}}
-      </td>
-      <td class='is-admin'>
-        {{user.isAdmin}}
-      </td>
-      <td class='created-at'>
-        {{user.createdAt | date:'medium'}}
-      </td>
-      <td class='actions'>
-        <a class='glyphicon glyphicon-pencil edit'
-            ui-sref='admin.edit_user({ id: user.id })'>
-        </a>
-        <a class='glyphicon glyphicon-remove delete'
-            ng-click="deleteUser(user.id)"></a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div ng-controller='UserCtrl'>
+  <h2>Users</h2>
+  <button class='btn btn-default new-item-btn' ui-sref='admin.new_user'>
+    <i class='glyphicon-plus'>&nbsp;New User</i>
+  </button>
+  <table class='table table-striped admin-table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Is Admin</th>
+        <th>Created</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td class='name'>
+          {{user.firstName}} {{user.lastName}}
+        </td>
+        <td>
+          {{user.email}}
+        </td>
+        <td class='is-admin'>
+          {{user.isAdmin}}
+        </td>
+        <td class='created-at'>
+          {{user.createdAt | date:'medium'}}
+        </td>
+        <td class='actions'>
+          <a class='glyphicon glyphicon-pencil edit'
+              ui-sref='admin.edit_user({ id: user.id })'>
+          </a>
+          <a class='glyphicon glyphicon-remove delete'
+              ng-click="deleteUser(user.id)"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

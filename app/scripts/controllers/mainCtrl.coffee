@@ -11,5 +11,7 @@ angular.module('asdfApp')
         storyCount = stories.length
         idx = getRandom 0, storyCount - 1
         currentStory = stories[idx]
-        $scope.firstSentence = currentStory.firstSentence
-        $scope.url = currentStory.url
+        if currentStory?
+            $scope.firstSentence = currentStory.firstSentence
+            $scope.url = currentStory.url
+            $scope.author = currentStory.author

@@ -1,16 +1,18 @@
-<nav class='admin-nav-bar'>
+<nav class='admin-nav-bar' ng-controller='AdminCtrl'>
   <a ui-sref='admin.users' class='admin-logo'>
     <span class='amara'>amara</span> admin
   </a>
-  <a ui-sref='admin.users'
+
+  <a ng-show='loggedIn' ui-sref='admin.users'
       ng-class="{ active: $state.includes('admin.users') }">
     Users
   </a>
-  <a ui-sref='admin.stories'
+  <a  ng-show='loggedIn' ui-sref='admin.stories'
       ng-class="{ active: $state.includes('admin.stories') }">
     Stories
   </a>
-  <div class='acct-info'>
+
+  <div class='acct-info' ng-show='loggedIn'>
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
         {{email}} <span class="caret"></span>
@@ -20,5 +22,6 @@
       </ul>
     </div>
   </div>
+
 </nav>
 <div ui-view class='admin-body'></div>

@@ -2,6 +2,10 @@ angular.module('asdfApp')
 
   .controller 'StoriesCtrl', ($scope, $http, $state, $stateParams, Session) ->
 
+    Session.update().then (session) ->
+      if session.isLoggedIn is false
+        $state.go 'admin.login'
+
     switch $state.current.name
 
       when 'admin.stories'
@@ -26,7 +30,8 @@ angular.module('asdfApp')
       story =
           url: $scope.url
           firstSentence: $scope.firstSentence
-          author: Session.userId
+          addedBy: Session.userId
+          author: $scope.author
       if id?
         $http.put('/api/v1/story/' + id, story).success () ->
           $state.go 'admin.stories'
