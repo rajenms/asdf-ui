@@ -31,7 +31,6 @@ angular.module('asdfApp')
           url: $scope.url
           firstSentence: $scope.firstSentence
           addedBy: Session.userId
-          author: $scope.author
       if id?
         $http.put('/api/v1/story/' + id, story).success () ->
           $state.go 'admin.stories'
