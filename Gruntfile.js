@@ -359,7 +359,7 @@ module.exports = function(grunt) {
           // 'coffee',
           // 'compass:dist',
           //'copy:styles',
-          'imagemin',
+          //'imagemin',
           'svgmin',
           'htmlmin'
         ],
@@ -429,6 +429,7 @@ module.exports = function(grunt) {
     'coffee',
     'compass:dist',
     'copy:styles',
+    'imagemin',
     'concurrent:dist',
     'autoprefixer',
     'concat',
