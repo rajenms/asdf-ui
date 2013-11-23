@@ -358,7 +358,7 @@ module.exports = function(grunt) {
         tasks: [
           // 'coffee',
           // 'compass:dist',
-          'copy:styles',
+          //'copy:styles',
           'imagemin',
           'svgmin',
           'htmlmin'
@@ -428,6 +428,7 @@ module.exports = function(grunt) {
     'useminPrepare',
     'coffee',
     'compass:dist',
+    'copy:styles',
     'concurrent:dist',
     'autoprefixer',
     'concat',
